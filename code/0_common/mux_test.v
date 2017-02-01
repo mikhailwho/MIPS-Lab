@@ -19,6 +19,28 @@ module mux_test;
 		Bin <= 0;
 		control <= 0;
         #10;
+        
+        Ain <= 5'd10;
+        Bin <= 5'd56;
+        control <= 5'd0;
+        //Expected: 10
+        
+        #10;
+        control <= 1; //Expected 56 --> interesting error, discuss in report
+        #10;
+        
+         Ain <= 5'd3;
+         Bin <= 5'd2;
+         control <= 5'd1;
+         //Expected: 2
+         
+         #10;
+         
+         
+         Ain <= 5'd10;
+         Bin <= 5'd0;
+         control <= 5'd0;
+                //Expected: 10
 
 	end
       
