@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage{graphicx} % new way of doing eps files
+\usepackage{listings} % nice code layout
+\usepackage[usenames]{color} % color
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{graphgray}{gray}{0.7}
+\definecolor{ans}{rgb}{1,0,0}
+\definecolor{blue}{rgb}{0,0,1}
+% \Verilog{title}{label}{file}
+\newcommand{\Verilog}[3]{
+  \lstset{language=Verilog}
+  \lstset{backgroundcolor=\color{listinggray},rulecolor=\color{blue}}
+  \lstset{linewidth=\textwidth}
+  \lstset{commentstyle=\textit, stringstyle=\upshape,showspaces=false}
+  \lstset{frame=tb}
+  \lstinputlisting[caption={#1},label={#2}]{#3}
+}
+
+
+\author{Madeline Stephens and Michael Hu}
+\title{Lab 2: Program Counter}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+Building upon the knowledge of registers established in Lab 1, Lab 2 addresses the program counter -- a one word long register. This special register holds the address of the next instruction to be executed by the computer. While this is a seemingly simple function, the program counter must be able to work under a few different conditions. The program counter must be able to advance to the next instruction address with each clock cycle. However, this is complicated when unconditional branching, conditional branching, or interrupts are implemented. These commands require the program counter to move to an address that may not be the next in sequential order. To help handle these various situations, an incrementer and input selector are required. These components were fulfilled with a simple adder and multiplexer, respectively.
+
+\section{Interface}
+A simple adder was used to created an incrementor for the program counter. The adder consisted of two inputs and one output. The output of the adder, as could be expected, was the sum of the two inputs. It was required that the output of the incrementer be a wire, due to the fact that it must continuously assign a value. For a program counter to operate correctly, it must be able to decide between executing normal sequential stepping and branching. A basic multiplexer was used to fulfill this task. The mux used in this lab had two inputs, a selector, and an output. Based on whether the selector is set or not, the multiplexer connects one of the inputs to the output. This can be thought of like a railroad switch. Eventually, the multiplexer will be used to discern the correct value to pass into the program counter register. The program counter register will then pass its value to the adder (or incrementer) to get the address of the next instruction in memory. The adder and multiplexer were built using Verilog code that utilized the definintions file and were provided by Dr. Schubert. 
+
+
+\section{Design}
+This lab focused on creating and testing the basic components needed to create a basic program counter. When combined with the program counter register, the simple adder and multiplexer will make up a program counter that can operate under various circumstances. Due to the multiplexer, the program counter will be able to function when faced with branching, looping, or any command that requires it to move to a non-sequential memory address.  
+
+This is the internal design of the item.  Design description and explanation, including any pictures, charts, etc.  This is the details of what you want to build, but not how to build it.  In senior design terms, this is the specification.
+
+\section{Implementation}
+The incrementer was created by programming a simple adder using Verilog. This code can be found in Listing~\ref{code:adder} on page~\pageref{code:adder}. The adder must simply be passed a one, due to the fact that the memory of the computer being built will be word addressable. Additionally, all inputs and output of the adder are of size WORD due to this fact. Because the output of the adder must be continuously driven, it is important to note that is must be defined as a wire. In this case, this was done using a simple assign statement. 
+
+While slightly more involved, the multipexer code was still very simple to implement. The multiplexer code can be reference in Listing~\ref{code:mux}. Unlike the adder, the multiplexer had a size parameter. This allows the code to be reused, as only the parameter needs to be changed in order to change the size of the multiplexer. However, one must note that parameters can not be changed later with code. The multiplexer took in two inputs, a selector, and produced one output. The selector (referred to as "control" hereafter) is used to determine while input will be connected to the multiplexer output. The ternary operator in the output assign statement treats control as a Boolean statement. If control is HIGH, then Bin is connected to the output; if control is LOW, Ain is connected to the output. This function will allow the program counter to chose between simple incrementing or jumping to an address following a branch.
+
+\Verilog{Verilog code for implementing an adder.}{code:adder}{H:/MIPS-Lab/code/0_common/adder.v}
+\Verilog{Verilog code for implementing a mux.}{code:mux}{H:/MIPS-Lab/code/0_common/mux.v}
+
+\section{Test Bench Design}
+To ensure the proper function of the aforementioned code, test benches were created and simulated. Various cases were used to test each module. These cases were chosen due to the fact that common errors could possibly occur under such conditions. 
+
+The code for the adder test bench can be found in Listing~\ref{code:addertest}. The various test cases were chosen to test the basic function of the adder and to test its limitations. The first test case was simple addition check to ensure the adder could actually add small numbers with no errors. The next case was chosen because it was expected to cause a ripple-carry between bytes. The next two cases tested hexadecimal inputs, with the latter testing the largest value that could be properly stored in a register of size WORD. This number was found using the equation $2^n -1$, with n being 32. The next case added intentionally caused overflow to test what the adder code would output. This was done by adding h'FFFFFFFF to itself. It was the adder was expected to output zero due to this error. 
+
+\Verilog{Verilog code for testing an adder.}{code:addertest}{H:/MIPS-Lab/code/0_common/adder_test.v}
+
+Due to the parameter used in the multiplexer code, definitions were added to multiplexer test bench to boost re-usability. Two different sizes of the multiplexer were tested -- 5-bit and 16-bit. Test cases were constructed so that various number combinations were used and control was varied. Initially, the 5-bit  multiplexer was tested. Referring to Listing ~\ref{code:muxtest}, MUXSIZE was set to 5 and SIZE was set to 16 (i.e.- remained unchanged). This was an oversight which led to an expected error. In the second text case, the expected output was 56. However, because the multiplexer was only five bits, only the last five bits of 56 (b'111000) were used, causing the actual output value to be 24 (b'11000). Additionally, due to the fact that Vivado did not know what to do with them, the remaining eleven bits were filled with Z.
+The last test ran on the mux was with the parameter defined as 16 (that is, with MUXSIZE and SIZE set to 16). This test produced expected results.
+
+
+\Verilog{Verilog code for testing a mux.}{code:muxtest}{H:/MIPS-Lab/code/0_common/mux_test.v}
+
+\section{Simulation}
+The timing diagram for the adder test can be found in Figure~\ref{fig:addertest} on page~\pageref{fig:regtest}. The adder test bench simulation provided exactly the expected results.
+
+The simulation waveforms for the intial 5-bit multiplexer test can be found in Figure~\ref{fig:mux5test}. Note the blue waveforms and the fact that they are marked with Z, not a distinct value or what was expected. However, it can be seen that the last five bits of the output match what was expected.
+
+Lastly, the timing diagram for the 16-bit multiplexer test can be found in Figure~\ref{fig:mux16test}. The output of the simulation was as expected, and no other errors were found.
+
+
+\begin{figure}
+\begin{center}
+\caption{Timing diagram for the adder test.}\label{fig:addertest}
+\includegraphics[width=0.9\textwidth]{H:/CompOrg/adder-test.png}
+\end{center}
+\end{figure}
+
+\begin{figure}
+	\begin{center}
+		\caption{Timing diagram for the 5-bit mux test with SIZE = 16.}\label{fig:mux5test}
+		\includegraphics[width=0.9\textwidth]{H:/CompOrg/mux-test5.png}
+	\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\caption{Timing diagram for the 16-bit mux test.}\label{fig:mux16test}
+\includegraphics[width=0.9\textwidth]{H:/CompOrg/mux16-test.png}
+\end{center}
+\end{figure}
+
+
+
+\section{Conclusions}
+In order to create a properly functioning program counter, an incrementer and input selector are required. To ensure this, a simple adder and multiplexer were built and tested. While a few errors were encountered, these components functioned as expected. The simulation waveforms created from the various tests provide insight into how these components function and how important details like size definitions and parameters can be. While the adder performed exactly as expected, the multiplexer was found to be a bit more complicated. For a more thorough investigation, it may behoove the user to test the multiplexer with additional size parameters. 
+
+Despite the few errors encountered, the components operated correctly. Thus, by implementing the adder and multiplexer created in Lab 2, a fully functioning program counter could be constructed.
+\end{document} 

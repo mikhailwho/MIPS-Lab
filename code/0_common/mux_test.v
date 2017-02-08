@@ -1,4 +1,6 @@
 `timescale 1ns / 1ps
+`define MUXSIZE 16
+`define SIZE 5
 
 module mux_test;
 
@@ -7,7 +9,7 @@ module mux_test;
 	reg control;
 	wire [15:0] mux_out;
 
-	mux#(16) uut (
+	mux#(`SIZE) uut (
 		.Ain(Ain), 
 		.Bin(Bin), 
 		.control(control), 
@@ -20,26 +22,26 @@ module mux_test;
 		control <= 0;
         #10;
         
-        Ain <= 5'd10;
-        Bin <= 5'd56;
-        control <= 5'd0;
+        Ain <= `SIZE'd10;
+        Bin <= `SIZE'd56;
+        control <= `SIZE'd0;
         //Expected: 10
         
         #10;
-        control <= 1; //Expected 56 --> interesting error, discuss in report
+        control <= 1; //Expected 56
         #10;
         
-         Ain <= 5'd3;
-         Bin <= 5'd2;
-         control <= 5'd1;
+         Ain <= `SIZE'd3;
+         Bin <= `SIZE'd2;
+         control <= `SIZE'd1;
          //Expected: 2
          
          #10;
          
          
-         Ain <= 5'd10;
-         Bin <= 5'd0;
-         control <= 5'd0;
+         Ain <= `SIZE'd10;
+         Bin <= `SIZE'd0;
+         control <= `SIZE'd0;
                 //Expected: 10
 
 	end

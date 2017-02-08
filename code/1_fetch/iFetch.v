@@ -15,28 +15,28 @@ module iFetch#(parameter STEP=32'd1, SIZE=1024)(
     assign nPC=nextPC;
     
     mux#(`WORD) PCsel(
-    .Ain(),
-    .Bin(),
-    .control(),
-    .mux_out()
+    .Ain(nextPC),
+    .Bin(BrDest),
+    .control(PCSrc),
+    .mux_out(new_PC)
     );
         
     register myPC(
-    .clk(),
-    .reset(),
-    .D(),
-    .Q()
+    .clk(clk),
+    .reset(reset),
+    .D(new_PC),
+    .Q(PC)
     );
     
     adder incrementer(
-    .Ain(),
-    .Bin(),
-    .add_out()
+    .Ain(PC),
+    .Bin(STEP),
+    .add_out(nextPC)
     );
     
     instr_mem#(SIZE) iMemory(
-    .clk(),
-    .pc(),
-    .instruction()
+    .clk(clk),
+    .pc(PC),
+    .instruction(IR)
     );
 endmodule
