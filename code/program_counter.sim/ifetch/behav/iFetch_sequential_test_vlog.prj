@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "../../../1_fetch/instr_mem.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../1_fetch/register.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../0_common/adder.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../0_common/mux.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../1_fetch/iFetch.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../program_counter.srcs/ifetch/new/iFetch_sequential_test.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../0_common/oscillator.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../1_fetch/buffer_ifid.v" --include "../../../0_common"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

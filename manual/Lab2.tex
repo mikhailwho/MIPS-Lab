@@ -33,8 +33,6 @@ A simple adder was used to created an incrementor for the program counter. The a
 \section{Design}
 This lab focused on creating and testing the basic components needed to create a basic program counter. When combined with the program counter register, the simple adder and multiplexer will make up a program counter that can operate under various circumstances. Due to the multiplexer, the program counter will be able to function when faced with branching, looping, or any command that requires it to move to a non-sequential memory address.  
 
-This is the internal design of the item.  Design description and explanation, including any pictures, charts, etc.  This is the details of what you want to build, but not how to build it.  In senior design terms, this is the specification.
-
 \section{Implementation}
 The incrementer was created by programming a simple adder using Verilog. This code can be found in Listing~\ref{code:adder} on page~\pageref{code:adder}. The adder must simply be passed a one, due to the fact that the memory of the computer being built will be word addressable. Additionally, all inputs and output of the adder are of size WORD due to this fact. Because the output of the adder must be continuously driven, it is important to note that is must be defined as a wire. In this case, this was done using a simple assign statement. 
 

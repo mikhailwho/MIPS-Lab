@@ -37,37 +37,37 @@ module iExecute(
 
     
 mux#(`WORD) alu_mux(
-    .Ain(),
-    .Bin(),
-    .control(),
-    .mux_out()
+    .Ain(B),
+    .Bin(SE),
+    .control(ALUSrc),
+    .mux_out(Data2)
     );
 
 adder branch_target_calculator(
-    .Ain(),
-    .Bin(),
-    .add_out()
+    .Ain(n_PCin),
+    .Bin(SE),
+    .add_out(Branch_Target_nb)
     );
 
 ALU myALU(
-    .A(),
-    .B(),
-    .ALU_control(),
-    .ALUresult(),
-    .zero()
+    .A(A),
+    .B(Data2),
+    .ALU_control(ALUoperation),
+    .ALUresult(Result_nb),
+    .zero(zero_nb)
     );
     
 ALU_control ALUcont(
-    .ALUOp(),
-    .funct(),
-    .ALU_control()
+    .ALUOp(ALUop),
+    .funct(SE[5:0]),
+    .ALU_control(ALUoperation)
     );
     
 mux#(5) RegDstMux(
-    .Ain(),
-    .Bin(),
-    .control(),
-    .mux_out()
+    .Ain(RT),
+    .Bin(RD),
+    .control(RegDst),
+    .mux_out(RegDstAddress_nb)
     );
     
 buffer_exmem BufEXMEM(

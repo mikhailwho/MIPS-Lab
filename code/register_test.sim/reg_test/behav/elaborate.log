@@ -1,0 +1,14 @@
+Vivado Simulator 2014.4
+Copyright 1986-1999, 2001-2014 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/Vivado/2014.4/bin/unwrapped/win64.o/xelab.exe -wto 5a450648942640a8a3b391419483cf4c --debug typical --relax --include ../../../0_common -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot test_regs_behav xil_defaultlib.test_regs xil_defaultlib.glbl -log elaborate.log 
+Multi-threading is on. Using 6 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.oscillator
+Compiling module xil_defaultlib.register
+Compiling module xil_defaultlib.test_regs
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot test_regs_behav

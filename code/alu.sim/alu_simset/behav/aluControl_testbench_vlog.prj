@@ -1,0 +1,6 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "../../../2_decode/ALU_control.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../alu.srcs/alu simset/aluControl_test.v" --include "../../../0_common"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"

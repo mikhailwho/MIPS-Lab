@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# Webtalk v2014.4 (64-bit)
+# SW Build 1071353 on Tue Nov 18 18:24:04 MST 2014
+# IP Build 1070531 on Tue Nov 18 01:10:18 MST 2014
+# Start of session at: Tue Mar 28 17:55:05 2017
+# Process ID: 83704
+# Log file: H:/MIPS-Lab/code/alu.sim/alu_simset/behav/webtalk.log
+# Journal file: H:/MIPS-Lab/code/alu.sim/alu_simset/behav\webtalk.jou
+#-----------------------------------------------------------
+source H:/MIPS-Lab/code/alu.sim/alu_simset/behav/xsim.dir/aluControl_testbench_behav/webtalk/xsim_webtalk.tcl -notrace

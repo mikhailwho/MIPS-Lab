@@ -1,0 +1,18 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/1_fetch/instr_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module instr_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/1_fetch/register.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module register
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/0_common/adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/0_common/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/1_fetch/iFetch.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module iFetch
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/program_counter.srcs/ifetch/new/iFetch_sequential_test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module iFetch_sequential_test
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/0_common/oscillator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module oscillator
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/1_fetch/buffer_ifid.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module buffer_ifid
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/program_counter.sim/ifetch/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

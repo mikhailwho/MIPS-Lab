@@ -1,0 +1,16 @@
+Vivado Simulator 2014.4
+Copyright 1986-1999, 2001-2014 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/Vivado/2014.4/bin/unwrapped/win64.o/xelab.exe -wto 15fbc250eef4449888eda5f52c250a64 --debug typical --relax --include ../../../0_common -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot mux_test_behav xil_defaultlib.mux_test xil_defaultlib.glbl -log elaborate.log 
+Multi-threading is on. Using 6 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 16 differs from formal bit length 5 for port Ain [H:/MIPS-Lab/code/0_common/mux_test.v:13]
+WARNING: [VRFC 10-278] actual bit length 16 differs from formal bit length 5 for port Bin [H:/MIPS-Lab/code/0_common/mux_test.v:14]
+WARNING: [VRFC 10-278] actual bit length 16 differs from formal bit length 5 for port mux_out [H:/MIPS-Lab/code/0_common/mux_test.v:16]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.mux(SIZE=5)
+Compiling module xil_defaultlib.mux_test
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot mux_test_behav

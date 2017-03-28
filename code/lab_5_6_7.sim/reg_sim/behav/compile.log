@@ -1,0 +1,9 @@
+Determining compilation order of HDL files.
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/2_decode/regfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/0_common/oscillator.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module oscillator
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/lab_5_6_7.srcs/reg_sim/new/regfile_testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module regfile_test
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/lab_5_6_7.sim/reg_sim/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

@@ -1,0 +1,7 @@
+Determining compilation order of HDL files.
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/2_decode/ALU_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_control
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/alu.srcs/alu simset/aluControl_test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module aluControl_testbench
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/alu.sim/alu_simset/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

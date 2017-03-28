@@ -1,0 +1,11 @@
+Determining compilation order of HDL files.
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/2_decode/buffer_IDEX.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module buffer_IDEX
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/2_decode/control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/2_decode/regfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/2_decode/sign_extender.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sign_extender
+ERROR: [VRFC 10-91] index is not declared [H:/MIPS-Lab/code/2_decode/sign_extender.v:7]
+ERROR: [VRFC 10-1040] module sign_extender ignored due to previous errors [H:/MIPS-Lab/code/2_decode/sign_extender.v:3]

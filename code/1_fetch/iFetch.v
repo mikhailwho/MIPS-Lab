@@ -12,6 +12,10 @@ module iFetch#(parameter STEP=32'd1, SIZE=1024)(
     wire [`WORD-1:0] new_PC;
     wire[`WORD-1:0] nextPC;
     
+    
+    wire [`WORD-1:0] IR_wire;
+    wire [`WORD-1:0] PC_out;
+    
     assign nPC=nextPC;
     
     mux#(`WORD) PCsel(
@@ -37,6 +41,16 @@ module iFetch#(parameter STEP=32'd1, SIZE=1024)(
     instr_mem#(SIZE) iMemory(
     .clk(clk),
     .pc(PC),
-    .instruction(IR)
+    .instruction(IR_wire)
     );
+    
+     buffer_ifid buffer(
+    .clk(clk),
+    .reset(reset),
+    .nPC_if(nextPC),
+    .IR_if(IR_wire),
+    .nPC_id(PC_out),
+    .IR_id(IR)
+    );
+    
 endmodule

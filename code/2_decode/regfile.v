@@ -26,11 +26,20 @@ module regfile#(
         //else 
         
         //your code
+        if(write)
+            begin
+                rf[address_dest] <= write_data;
+                
+            end
+            
     end
     
     //handle output
     always @(posedge(clk))begin
         //your code
+        A <= rf[address_A];
+        B <= rf[address_B];
+        
     end
     
     initial

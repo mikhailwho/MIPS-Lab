@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "../../../2_decode/regfile.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../0_common/oscillator.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../lab_5_6_7.srcs/reg_sim/new/regfile_testbench.v" --include "../../../0_common"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"

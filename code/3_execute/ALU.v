@@ -1,7 +1,6 @@
 `include "definitions.vh"
 
 
-
 module ALU(
     input [`WORD-1:0] A,
     input [`WORD-1:0] B,
@@ -10,11 +9,19 @@ module ALU(
     output zero
     );
     
-    assign zero = ;//fill in the blank :)
+    assign zero = (ALUresult == 0);
     
     always@(*) begin
     
-    // your code here
+        case(ALU_control)
+            `ALU_ADD : ALUresult = (A + B);
+            `ALU_SUB : ALUresult = (A - B);
+            `ALU_AND : ALUresult = (A & B);
+            `ALU_OR  : ALUresult = (A | B);
+            `ALU_NOR : ALUresult = !(A | B);
+            `ALU_SLT : ALUresult = (A < B);
+            default  : ;
+        endcase
     
     end
 endmodule

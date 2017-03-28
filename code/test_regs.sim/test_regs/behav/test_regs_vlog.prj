@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "../../../1_fetch/register_test.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../1_fetch/register.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../0_common/oscillator.v" --include "../../../0_common"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

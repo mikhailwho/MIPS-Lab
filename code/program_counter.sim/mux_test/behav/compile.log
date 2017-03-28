@@ -1,0 +1,7 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/0_common/mux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/0_common/mux_test.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux_test
+WARNING: [VRFC 10-986] literal value truncated to fit in 5 bits [H:/MIPS-Lab/code/0_common/mux_test.v:26]
+INFO: [VRFC 10-2263] Analyzing Verilog file "H:/MIPS-Lab/code/program_counter.sim/mux_test/behav/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

@@ -11,7 +11,7 @@ module buffer_ifid#(parameter DELAY=0)(
 
     always @(negedge(clk), posedge(reset))
     begin
-      #DELAY;
+      #(`DELAY);
       if (reset)
       begin
         nPC_id<=`ZERO;

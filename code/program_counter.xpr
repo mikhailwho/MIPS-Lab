@@ -11,7 +11,7 @@
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="BoardPart" Val=""/>
     <Option Name="SourceMgmtMode" Val="DisplayOnly"/>
-    <Option Name="ActiveSimSet" Val="instr_mem"/>
+    <Option Name="ActiveSimSet" Val="ifetch"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
   </Configuration>
   <FileSets Version="1" Minor="31">
@@ -31,6 +31,13 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/0_common/mux_test.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/0_common/oscillator.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -111,7 +118,6 @@
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="instr_mem_test"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
-        <Option Name="SimMode" Val="post-implementation"/>
         <Option Name="SrcSet" Val=""/>
       </Config>
     </FileSet>
@@ -165,14 +171,29 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/0_common/oscillator.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/1_fetch/buffer_ifid.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopAutoSet" Val="TRUE"/>
-        <Option Name="SimMode" Val="post-implementation"/>
+        <Option Name="TopModule" Val="iFetch_sequential_test"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="SrcSet" Val=""/>
       </Config>
     </FileSet>
     <FileSet Name="buffer_sim" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/buffer_sim">
+      <Filter Type="Srcs"/>
       <File Path="$PPRDIR/0_common/definitions.vh">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -193,9 +214,17 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/0_common/oscillator.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopAutoSet" Val="TRUE"/>
+        <Option Name="TopModule" Val="buffer_test"/>
+        <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="SrcSet" Val=""/>
       </Config>
     </FileSet>

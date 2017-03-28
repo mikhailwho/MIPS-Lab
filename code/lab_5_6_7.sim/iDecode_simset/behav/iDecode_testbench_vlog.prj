@@ -1,0 +1,11 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "../../../2_decode/buffer_IDEX.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../2_decode/control.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../2_decode/regfile.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../2_decode/sign_extender.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../0_common/oscillator.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../2_decode/iDecode.v" --include "../../../0_common"
+verilog xil_defaultlib  "../../../lab_5_6_7.srcs/iDecode_simset/new/iDecode_testbench.v" --include "../../../0_common"
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
