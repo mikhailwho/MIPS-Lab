@@ -58,7 +58,7 @@ ALU myALU(
     );
     
 ALU_control ALUcont(
-    .ALUOp(ALUop),
+    .ALUOp(ALUOp),
     .funct(SE[5:0]),
     .ALU_control(ALUoperation)
     );

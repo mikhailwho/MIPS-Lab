@@ -13,6 +13,8 @@ module instr_mem#(
         instruction<= imem[pc];
     
     initial
+        
         $readmemb(`IMEMFILE, imem);
+
 
 endmodule

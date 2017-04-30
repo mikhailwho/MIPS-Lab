@@ -8,9 +8,9 @@ module iWriteBack(
     );
     
 mux#(`WORD) wbmux(
-    .Ain(),
-    .Bin(),
-    .control(),
-    .mux_out()
+    .Ain(ALU_result),
+    .Bin(Mem_result),
+    .control(MemToReg),
+    .mux_out(result)
     );
 endmodule

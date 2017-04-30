@@ -14,10 +14,7 @@ module iFetch#(parameter STEP=32'd1, SIZE=1024)(
     
     
     wire [`WORD-1:0] IR_wire;
-    wire [`WORD-1:0] PC_out;
-    
-    assign nPC=nextPC;
-    
+   
     mux#(`WORD) PCsel(
     .Ain(nextPC),
     .Bin(BrDest),
@@ -49,7 +46,7 @@ module iFetch#(parameter STEP=32'd1, SIZE=1024)(
     .reset(reset),
     .nPC_if(nextPC),
     .IR_if(IR_wire),
-    .nPC_id(PC_out),
+    .nPC_id(nPC),
     .IR_id(IR)
     );
     

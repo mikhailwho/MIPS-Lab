@@ -88,7 +88,7 @@ module iDecode(
             .SE_out(SE),
             .RT_out(RT),
             .RD_out(RD),
-            .ALUOp_out(ALUop),
+            .ALUOp_out(ALUOp),
             .ALUSrc_out(ALUSrc),
             .Branch_out(Branch),
             .MemRead_out(MemRead),

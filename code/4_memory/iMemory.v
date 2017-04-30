@@ -21,16 +21,16 @@ module iMemory#(parameter SIZE=1024)(
     );
     wire [`WORD-1:0] MemReadData_nb;
     
-    and branchAnd(,,);
+    and branchAnd(PCSrc,Branch,zero);
 
     data_mem#(SIZE) RAM(
     .clk(clk),
     .reset(reset),
-    .write(),
-    .read(),
-    .address(),
-    .write_data(),
-    .read_data()
+    .write(MemWrite),
+    .read(MemRead),
+    .address(ALUResult_in),
+    .write_data(MemWriteData),
+    .read_data(MemReadData_nb)
     );
 
 buffer_memwb BufMemWB(
